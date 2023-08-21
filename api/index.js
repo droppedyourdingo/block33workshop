@@ -5,6 +5,8 @@ const { getUserById } = require('../db');
 const client = require('../db/client');
 const { JWT_SECRET = 'neverTell'} = process.env;
 
+
+
 // GET /api/health
 router.get('/health', async (req, res, next) => {
   try {

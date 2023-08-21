@@ -120,4 +120,16 @@ router.post('/:routineId/activities', requiredNotSent({requiredParams: ['activit
   }
 });
 
+// get id
+router.get('/:id', async (req, res, next)=>{
+  try{
+
+    const routine = await getRoutineById(req.params.id);
+    res.send(routine)
+
+  }catch(error){
+    next(error)
+  }
+})
+
 module.exports = router;
