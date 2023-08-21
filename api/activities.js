@@ -83,4 +83,18 @@ router.patch('/:activityId', requireUser, requiredNotSent({requiredParams: ['nam
   }
 });
 
+// get id 
+router.get('/:id', async (req, res, next)=>{
+
+  try{
+
+    const activity = await getActivityById(req.params.id);
+    res.send(activity)
+
+  }catch(error){
+    
+    next(error)
+  }
+})
+
 module.exports = router;
